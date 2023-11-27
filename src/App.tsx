@@ -1,13 +1,14 @@
 import StatBlock from "./components/StatBlock.tsx";
 import NavBar from "./components/NavBar.tsx";
-// import './App.css'
+import { ThemeProvider } from "@/components/theme-provider";
 
 function App() {
   return (
-      <div className="h-screen w-screen mx-auto text-cyan-950 bg-cyan-50 dark:text-cyan-50 dark:bg-gray-800">
-          <NavBar />
-        <div className="h-2/3 w-2/3 mx-auto grid grid-cols-2 content-between gap-4">
-          <div className="col-span-2 p-5 rounded-lg shadow-lg bg-amber-50 h-24">
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className="h-screen w-screen mx-auto text-primary bg-background ">
+        <NavBar />
+        <div className="pt-12 h-2/3 w-2/3 mx-auto grid grid-cols-2 content-between gap-4 text-card-foreground">
+          <div className="col-span-2 p-5 rounded-lg shadow-lg bg-card">
             <StatBlock />
           </div>
           <div>
@@ -15,6 +16,7 @@ function App() {
           </div>
         </div>
       </div>
+      </ThemeProvider>
   )
 }
 
