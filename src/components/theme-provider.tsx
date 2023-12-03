@@ -70,5 +70,8 @@ export const useTheme = () => {
     if (context === undefined)
         throw new Error("useTheme must be used within a ThemeProvider")
 
-    return context
+    // Alert to the theme change so third-party components can be dynamically updated
+    window.dispatchEvent(new Event("themeUpdate"))
+
+    return context;
 }
